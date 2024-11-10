@@ -1,32 +1,39 @@
 'use client';
+
 import './globals.css';
 
 import {useState} from 'react';
 import {motion} from 'framer-motion';
 import {Input} from '@/components/ui/input';
 import {Button} from '@/components/ui/button';
+import {Github, Twitter, Instagram} from 'lucide-react';
 import Image from 'next/image';
 
 export default function Component() {
 	const [email, setEmail] = useState('');
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
-	const handleSubmit = async (e: React.FormEvent) => {
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		// Here you would typically send the email to your server
-		const response = await fetch('/api/waitlist', {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({email})
-		});
-
-		const data = await response.json();
-
+		console.log('Submitted email:', email);
 		setIsSubmitted(true);
 	};
 
 	return (
 		<div className='min-h-screen flex flex-col bg-white text-black'>
+			<header className='p-5 flex justify-between items-center border-b border-gray-200'>
+				<Image src={'/logo.svg'} alt='OnlyDevs logo' width={200} height={100} />
+				<nav>
+					<a href='#' className='mx-2 hover:underline'>
+						About
+					</a>
+					<a href='#' className='mx-2 hover:underline'>
+						Contact
+					</a>
+				</nav>
+			</header>
+
 			<main className='flex-grow flex flex-col items-center justify-center p-5'>
 				<motion.div
 					initial={{opacity: 0, y: 20}}
@@ -34,23 +41,25 @@ export default function Component() {
 					transition={{duration: 0.5}}
 					className='text-center mb-10'
 				>
-					<div className='flex flex-col items-center'>
-						<h2 className='text-4xl font-bold mb-4'>
-							Cool Hoodies with QR Codes
-						</h2>
-						<p className='text-xl mb-4'>
-							Join the waitlist for exclusive access!
-						</p>
+					<h2 className='text-4xl font-bold mb-4'>
+						Cool Hoodies with QR Codes
+					</h2>
+					<p className='text-xl'>Join the waitlist for exclusive access!</p>
+				</motion.div>
 
-						<Image
-							src='/demo2.webp'
-							alt='People wearing OnlyDevs hoodies'
-							width={400}
-							height={800}
-							objectFit='contain'
-							className='rounded-lg'
-						/>
-					</div>
+				<motion.div
+					initial={{opacity: 0, scale: 0.8}}
+					animate={{opacity: 1, scale: 1}}
+					transition={{delay: 0.2, duration: 0.5}}
+					className='mb-10'
+				>
+					<Image
+						src='/placeholder.svg?height=300&width=300'
+						alt='Hoodie with QR Code'
+						className='rounded-lg shadow-lg'
+						width={300}
+						height={300}
+					/>
 				</motion.div>
 
 				<motion.form
@@ -88,6 +97,30 @@ export default function Component() {
 					</motion.p>
 				)}
 			</main>
+
+			<footer className='p-5 flex justify-center items-center border-t border-gray-200'>
+				<a
+					href='#'
+					className='mx-2 text-black hover:text-gray-600'
+					aria-label='GitHub'
+				>
+					<Github className='h-6 w-6' />
+				</a>
+				<a
+					href='#'
+					className='mx-2 text-black hover:text-gray-600'
+					aria-label='Twitter'
+				>
+					<Twitter className='h-6 w-6' />
+				</a>
+				<a
+					href='#'
+					className='mx-2 text-black hover:text-gray-600'
+					aria-label='Instagram'
+				>
+					<Instagram className='h-6 w-6' />
+				</a>
+			</footer>
 		</div>
 	);
 }
