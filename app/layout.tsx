@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {Analytics} from '@vercel/analytics/react';
 import './globals.css';
 
 import {Instagram} from 'lucide-react';
@@ -71,6 +72,7 @@ export default function RootLayout({
 						<Instagram className='h-6 w-6' />
 					</a>
 				</footer>
+				<Analytics />
 			</body>
 		</html>
 	);
