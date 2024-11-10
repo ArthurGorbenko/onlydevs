@@ -21,7 +21,6 @@ export default function RootLayout({
 							<defs id='SvgjsDefs1442'></defs>
 							<g
 								id='SvgjsG1443'
-								featurekey='G09qjj-0'
 								transform='matrix(1.032324194908142,0,0,1.032324194908142,-9.949539636294764,-3.3519564795887895)'
 								fill='#000'
 							>
@@ -48,7 +47,6 @@ export default function RootLayout({
 							</g>
 							<g
 								id='SvgjsG1444'
-								featurekey='0yvIkK-0'
 								transform='matrix(3.499562978744507,0,0,3.499562978744507,99.22047342969533,-3.077861386297222)'
 								fill='#000'
 							>
