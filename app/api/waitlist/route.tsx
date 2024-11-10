@@ -1,7 +1,7 @@
 import {createClient} from '@/utils/supabase/server';
 import {NextResponse} from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
 	const {email} = await req.json();
 
 	// Validate email

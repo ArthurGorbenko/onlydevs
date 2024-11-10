@@ -24,7 +24,7 @@ export default function AboutPage() {
 							stories—wins, losses, lessons, and laughs. In a world increasingly
 							curated and filtered, OnlyDevs encourages authenticity and
 							vulnerability, redefining personal branding by making honesty the
-							new "cool."
+							new &quot;cool.&quot;
 						</p>
 						<p className='text-muted-foreground'>
 							The idea is simple but bold: wear your story. Through QR-coded

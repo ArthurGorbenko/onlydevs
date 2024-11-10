@@ -13,14 +13,11 @@ export default function Component() {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		// Here you would typically send the email to your server
-		const response = await fetch('/api/waitlist', {
+		await fetch('/api/waitlist', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({email})
 		});
-
-		const data = await response.json();
 
 		setIsSubmitted(true);
 	};
@@ -84,7 +81,7 @@ export default function Component() {
 						animate={{opacity: 1, y: 0}}
 						className='mt-4 text-lg'
 					>
-						Thanks for joining! We'll keep you updated.
+						Thanks for joining! We&apos;ll keep you updated.
 					</motion.p>
 				)}
 			</main>
